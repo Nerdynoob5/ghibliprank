@@ -1,0 +1,198 @@
+/* Netflix-like dark theme */
+body {
+    font-family: 'Arial', sans-serif;
+    background: #141414;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+    overflow: hidden;
+}
+
+/* Logo style */
+.logo {
+    font-size: 3rem;
+    font-weight: bold;
+    color: red;
+    opacity: 0;
+    animation: fadeIn 1s forwards 0.5s;
+}
+
+.logo span {
+    color: white;
+}
+
+/* Upload box */
+.upload-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    display: inline-block;
+    box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.5);
+    transition: transform 0.3s ease-in-out;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    opacity: 0;
+    animation: fadeInUp 1s forwards 1s;
+}
+
+.upload-box:hover {
+    transform: scale(1.05);
+}
+
+/* Buttons */
+button {
+    margin-top: 10px;
+    padding: 12px 20px;
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: fadeInUp 1s forwards 1.5s;
+}
+
+button:hover {
+    background: darkred;
+    transform: scale(1.1);
+}
+
+/* Fake AI Processing Animation */
+.loading-animation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    margin: 5px;
+    background: red;
+    border-radius: 50%;
+    animation: blink 1.2s infinite ease-in-out;
+}
+
+.dot:nth-child(2) { animation-delay: 0.2s; }
+.dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes blink {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+/* Hide elements */
+.hidden {
+    display: none;
+}
+
+/* Canvas container */
+.canvas-container {
+    margin-top: 20px;
+    opacity: 0;
+    animation: fadeInUp 1s forwards 2s;
+}
+
+/* Canvas */
+canvas {
+    border: 2px solid white;
+    max-width: 100%;
+}
+
+/* Animations for moving lines */
+@keyframes moveLines {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.moving-lines {
+    position: absolute;
+    top: 50%;
+    left: -100%;
+    height: 2px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    animation: moveLines 5s linear infinite;
+}
+
+/* Media Queries for Responsiveness */
+
+/* For devices like phones (max-width 600px) */
+@media (max-width: 600px) {
+    .logo {
+        font-size: 2rem;
+        animation: fadeIn 1s forwards 0.5s;
+    }
+
+    .upload-box {
+        padding: 15px;
+        margin: 10px auto;
+        max-width: 300px;
+        animation: fadeInUp 1s forwards 1s;
+    }
+
+    button {
+        padding: 10px 15px;
+        font-size: 14px;
+        animation: fadeInUp 1s forwards 1.5s;
+    }
+
+    .loading-animation .dot {
+        width: 12px;
+        height: 12px;
+        margin: 4px;
+    }
+}
+
+/* For tablets (max-width 768px) */
+@media (max-width: 768px) {
+    .logo {
+        font-size: 2.5rem;
+        animation: fadeIn 1s forwards 0.5s;
+    }
+
+    .upload-box {
+        padding: 18px;
+        max-width: 350px;
+        animation: fadeInUp 1s forwards 1s;
+    }
+
+    button {
+        padding: 10px 18px;
+        font-size: 16px;
+        animation: fadeInUp 1s forwards 1.5s;
+    }
+}
+
+/* For larger devices like laptops and desktops */
+@media (min-width: 1024px) {
+    .logo {
+        font-size: 3.5rem;
+        animation: fadeIn 1s forwards 0.5s;
+    }
+
+    .upload-box {
+        max-width: 500px;
+        animation: fadeInUp 1s forwards 1s;
+    }
+
+    button {
+        padding: 12px 20px;
+        font-size: 18px;
+        animation: fadeInUp 1s forwards 1.5s;
+    }
+}
+
+/* Fade-in and sliding effects */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}

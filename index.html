@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DingusStudio - AI Ghibli Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="logo">Ghibli<span>Studio</span></h1>
+        <p class="subtitle">Transform your photos into magical Ghibli-style art! ✨</p>
+
+        <div class="upload-box">
+            <input type="file" id="imageInput" accept="image/*">
+            <button onclick="uploadImage()">Upload & Transform</button>
+        </div>
+
+        <div id="processing" class="hidden">
+            <div class="loading-animation">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+            <p>Enhancing with AI... Please wait ⏳</p>
+            
+        </div>
+
+        <div class="canvas-container hidden">
+            <canvas id="outputCanvas"></canvas>
+            <button id="downloadBtn" onclick="downloadImage()">Download Image</button>
+            <button id="shareBtn" onclick="sharePrank()">Share with Friends</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
